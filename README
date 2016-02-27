@@ -1,0 +1,46 @@
+DBOc
+
+Compiler for generating Wt::Dbo classes from an own language.
+
+BNF for that language:
+<code>
+line ::= class | column
+class ::= identifier ': ' table-name
+column ::= type identifier column-name
+
+identifier stands for any C++ valid class or variable name.
+column-name / table-name stands for an valid table/column name of your favorite database.
+
+type ::= b | c class-name | d | e enum | f | i | p class-name | ss | Wdt | Ws
+
+b bool
+c custom class (second parameter)
+d double
+e enum (like c)
+f float
+i int
+p dbo::ptr<class-name> (like c, but with ptr)
+
+ss std::string
+Wdt Wt::WDateTime
+Ws Wt::WString
+</code>
+
+The first non-empty line has to be a class. Any following field-lines will add an field to the last class given.
+For an example look at test/.
+
+Further ideas:
+* generate source file
+* using more types
+* using templates for classes
+* Implement relation
+* allow specification of custom ID
+* allow disabling version-field
+* Improve command line arguments
+
+
+Usage: dboc -o OUTFILE INFILE
+OUTFILE stands for the file where to write header-data to.
+INFILE is a file with the given data.
+
+You can use dboc -h for information.

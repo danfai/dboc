@@ -1,0 +1,11 @@
+TestClass: testclass
+i blub blub
+c User user user
+p User us1 us1
+d nmbr nmbr
+
+AlterClass: alterclass
+ss blub blub
+f small small
+Wdt date date
+Ws wstr wstr
